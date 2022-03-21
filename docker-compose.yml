@@ -4,8 +4,10 @@ services:
   api:
     container_name: shop-crud-api
     build: .
+    volumes:
+      - ./:/app
     ports:
-      - "5000:5000"
+      - "80:80"
     links:
       - db:mysql
     depends_on:
