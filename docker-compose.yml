@@ -17,7 +17,10 @@ services:
     container_name: shop-crud-api-db
     platform: linux/x86_64
     image: mysql
+    command: --default-authentication-plugin=mysql_native_password
     restart: always
+    ports:
+      - "3306:3306"
     volumes:
       - database-volume:/var/lib/mysql
     environment:
