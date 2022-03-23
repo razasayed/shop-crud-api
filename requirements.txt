@@ -1,4 +1,5 @@
 Flask
+PyMySQL
 Flask-RESTful
 Flask-SQLAlchemy
 gunicorn

@@ -24,6 +24,7 @@ services:
     volumes:
       - database-volume:/var/lib/mysql
     environment:
+      MYSQL_DATABASE: shop-crud-api
       MYSQL_ROOT_PASSWORD: secret
 
 volumes:
