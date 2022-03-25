@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from db import db
+from resources import product_image, product
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:secret@db/shop-crud-api'
@@ -12,8 +13,5 @@ api = Api(app)
 def create_table():
     db.create_all()
 
-class HelloWorld(Resource):
-    def get(self):
-        return {'hello': 'world'}
-
-api.add_resource(HelloWorld, '/')
+api.add_resource(product.Product, '/product')
+api.add_resource(product_image.ProductImage, '/product/image')
