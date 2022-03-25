@@ -6,6 +6,8 @@ class ProductModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     description = db.Column(db.String(200))
+    logo_id = db.Column(db.Integer)
+    images = db.relationship('ProductImageModel', lazy='dynamic')
     created_at  = db.Column(db.DateTime, server_default=db.func.now())
     updated_at  = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
 
@@ -14,7 +16,7 @@ class ProductModel(db.Model):
         self.description = description
 
     def json(self):
-        return {'name': self.name, 'description': self.description}
+        return {'name': self.name, 'description': self.description, 'images': [image.json() for image in self.images.all()]}
 
     @classmethod
     def find_by_name(cls, name):

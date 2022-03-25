@@ -9,6 +9,11 @@ class ProductImage(Resource):
                         required=True,
                         help="product image url cannot be blank!"
                         )
+     parser.add_argument('product_id',
+                        type=int,
+                        required=True,
+                        help="product_id is required"
+                        )
 
      def post(self):
         data = request.get_json()

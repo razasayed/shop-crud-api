@@ -17,12 +17,11 @@ class Product(Resource):
 
      def post(self):
         data = request.get_json()
-        print('Data is {}', data)
 
         if ProductModel.find_by_name(data['name']):
             return {'message': "A product with name '{}' already exists.".format(data['name'])}, 400
 
-        product = ProductModel(data['name'], data['description'])
+        product = ProductModel(**data)
 
         try:
             product.save_to_db()

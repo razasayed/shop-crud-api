@@ -5,9 +5,12 @@ class ProductImageModel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     url = db.Column(db.String(100))
+    product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
+    product = db.relationship('ProductModel',foreign_keys=[product_id])
 
-    def __init__(self, id, url):
+    def __init__(self, id, url, product_id):
         self.url = url
+        self.product_id = product_id
 
     def json(self):
         return {'url': self.url}
