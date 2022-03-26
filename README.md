@@ -4,15 +4,17 @@ This is a REST API for managing Products and Variants.
 
 # Tech Stack
 
-1. [Flask RESTful](https://flask-restful.readthedocs.io/en/latest/)
+1. [Flask RESTful](https://flask-restful.readthedocs.io/en/latest/).
 
-2. SQLAlchemy ORM (Object Relational Mapper)
+2. Gunicorn WSGI server to run the flask application.
 
-3. Database: MySQL
+3. SQLAlchemy ORM (Object Relational Mapper).
 
-4. Docker and Docker Compose for containerizing the app.
+4. Database: MySQL.
 
-5. Postman for testing the API's.
+5. Docker and Docker Compose for containerizing the app.
+
+6. Postman for testing the API's.
 
 There are two docker containers orchestrated using docker-compose, `api` which runs the Flask application and `db` which runs the MySQL database.
 
@@ -81,10 +83,6 @@ We have the following list of 11 REST API's available as per the project require
 
 11. Create a VariantImage: `POST /variant/image`
 
-
-There is a `postman collection` that i have created which can be imported in Postman to test the API's. The file name is `shop-crud-api.postman_collection.json` located in the project root directory.
-
-
 # Running the project
 
 Run the following command in the project root directory:
@@ -96,3 +94,5 @@ To stop running the application run the following command:
 `docker-compose stop` 
 
 Run `docker-compose down` if you want to remove all containers as well. The data in the MySQL container will however be persisted in the docker volume.
+
+There is a `postman collection` that i have created which can be imported in Postman to test the API's. The file name is `shop-crud-api.postman_collection.json` located in the project root directory.
