@@ -16,7 +16,7 @@ class ProductModel(db.Model):
         self.description = description
 
     def json(self):
-        return {'name': self.name, 'description': self.description, 'images': [image.json() for image in self.images.all()]}
+        return {'name': self.name, 'description': self.description, 'logo_id': self.logo_id, 'images': [image.json() for image in self.images.all()]}
 
     @classmethod
     def find_by_name(cls, name):

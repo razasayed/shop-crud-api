@@ -13,5 +13,5 @@ api = Api(app)
 def create_table():
     db.create_all()
 
-api.add_resource(product.Product, '/product')
+api.add_resource(product.Product, '/product', '/product/<int:id>')
 api.add_resource(product_image.ProductImage, '/product/image')
