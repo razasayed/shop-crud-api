@@ -9,6 +9,7 @@ class VariantModel(db.Model):
     color = db.Column(db.String(50))
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
     product = db.relationship('ProductModel')
+    images = db.relationship('VariantImageModel', lazy='dynamic')
     created_at  = db.Column(db.DateTime, server_default=db.func.now())
     updated_at  = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
 
@@ -19,7 +20,7 @@ class VariantModel(db.Model):
         self.product_id = product_id
 
     def json(self):
-        return {'name': self.name, 'size': self.size, 'color': self.color, 'product_id': self.product_id}
+        return {'name': self.name, 'size': self.size, 'color': self.color, 'product_id': self.product_id, 'images': [image.json() for image in self.images.all()]}
 
     @classmethod
     def find_by_name(cls, name):
