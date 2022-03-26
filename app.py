@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Resource, Api
 from db import db
-from resources import product_image, product
+from resources import product_image, product, variant
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:secret@db/shop-crud-api'
@@ -16,3 +16,5 @@ def create_table():
 api.add_resource(product.Product, '/product', '/product/<int:id>')
 api.add_resource(product.ProductList, '/products')
 api.add_resource(product_image.ProductImage, '/product/image')
+api.add_resource(variant.Variant, '/variant', '/variant/<int:id>')
+api.add_resource(variant.VariantList, '/variants')
