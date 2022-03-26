@@ -16,12 +16,12 @@ class ProductImage(Resource):
                         )
 
      def post(self):
-        data = request.get_json()
+        data = ProductImage.parser.parse_args()
 
         if ProductImageModel.find_by_url(data['url']):
             return {'message': "An image with url '{}' already exists.".format(data['url'])}, 400
 
-        product_image = ProductImageModel(data['url'])
+        product_image = ProductImageModel(**data)
 
         try:
             product_image.save_to_db()

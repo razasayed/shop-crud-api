@@ -15,8 +15,12 @@ class Product(Resource):
                         help="description cannot be blank!"
                         )
 
+     def get(self):
+        products = ProductModel.query.all()
+        return {'Products':list(x.json() for x in products)}
+
      def post(self):
-        data = request.get_json()
+        data = Product.parser.parse_args()
 
         if ProductModel.find_by_name(data['name']):
             return {'message': "A product with name '{}' already exists.".format(data['name'])}, 400
