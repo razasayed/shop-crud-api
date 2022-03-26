@@ -1,6 +1,8 @@
 from flask import request
 from flask_restful import Resource, reqparse
 from models.product import ProductModel
+from models.variant import VariantModel
+from resources import variant
 
 class Product(Resource):
      parser = reqparse.RequestParser()
@@ -59,3 +61,7 @@ class Product(Resource):
 class ProductList(Resource):
     def get(self):
         return {'products': list(map(lambda x: x.json(), ProductModel.query.all()))}
+
+class ProductVariantList(Resource):
+    def get(self, product_id):
+         return {'variants': list(map(lambda x: x.json(), VariantModel.query.filter_by(product_id=product_id).all()))}
