@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "57c7840d-600f-476d-9f34-0eb60ad8a5bf",
+		"name": "shop-crud-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"iPhone 10\",\n    \"description\": \"The next gen iphone 10\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get list of all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a particular product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/product/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"product",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Sony Bravia Television\",\n    \"description\": \"Great television from Sony\",\n    \"logo_id\": 1\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/product/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a ProductImage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"www.something1.com\",\n    \"product_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/product/image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"product",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Variant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Pink Color\",\n    \"size\": \"8 inches\",\n    \"color\": \"Pink\",\n    \"product_id\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/variant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"variant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Variant",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"size\": \"25 inch\",\n    \"name\": \"Sony Bravia Variant 1\",\n    \"color\": \"Black\",\n    \"product_id\": 1\n}   ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/variant/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"variant",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get list of all variants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/variants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"variants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a particular variant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/variant/1",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"variant",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all variants for a particular product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/product/2/variants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"product",
+						"2",
+						"variants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a VariantImage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"http://variantimage1url.com\",\n    \"variant_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/variant/image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"variant",
+						"image"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
