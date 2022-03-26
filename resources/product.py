@@ -19,9 +19,11 @@ class Product(Resource):
                         required=False
                         )
 
-     def get(self):
-        products = ProductModel.query.all()
-        return {'Products':list(x.json() for x in products)}
+     def get(self, id):
+        product = ProductModel.query.get(id)
+        if product:
+            return product.json()
+        return {'message': 'Product not found'}, 404
 
      def post(self):
         data = Product.parser.parse_args()
@@ -53,3 +55,7 @@ class Product(Resource):
  
         product.save_to_db()
         return product.json()
+
+class ProductList(Resource):
+    def get(self):
+        return {'products': list(map(lambda x: x.json(), ProductModel.query.all()))}
